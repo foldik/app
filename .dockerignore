@@ -1,0 +1,6 @@
+dist/
+target/
+assets/node_modules
+assets/elm-stuff
+Dockerfile
+README.md
