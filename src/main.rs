@@ -9,16 +9,7 @@ use rocket_contrib::templates::{Template};
 use std::collections::HashMap;
 
 #[get("/")]
-fn index() -> &'static str {
-    "Hello, world!"
-}
-
-#[get("/2")]
-fn index2() -> &'static str {
-    "Hello, world 2!"
-}
-
-#[get("/")]
+#[catch(404)]
 fn root() -> Template {
     let context = HashMap::<String, String>::new();
     Template::render("index", context)
@@ -26,10 +17,10 @@ fn root() -> Template {
 
 fn main() {
     rocket::ignite()
-        .attach(SpaceHelmet::default())
-        .mount("/api", routes![index, index2])
         .mount("/static", StaticFiles::from("dist"))
         .mount("/", routes![root])
+        .register(catchers![root])
+        .attach(SpaceHelmet::default())
         .attach(Template::fairing())
         .launch();
 }
