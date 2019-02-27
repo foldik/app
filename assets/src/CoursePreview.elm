@@ -38,11 +38,11 @@ courseStatusDecoder =
   let
     convert : String -> Decoder CourseStatus
     convert raw =
-      if raw == "draft" then
+      if raw == "Draft" then
         succeed Draft
-      else if raw == "published" then
+      else if raw == "Published" then
         succeed Published
-      else if raw == "public" then
+      else if raw == "Public" then
         succeed Public
       else
         fail "Unknown role"       

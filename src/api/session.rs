@@ -1,9 +1,6 @@
 use rocket_contrib::json::Json;
 
-#[derive(Serialize)]
-pub struct Data<T> {
-    pub data: T,
-}
+use crate::api::common::Data;
 
 #[derive(Serialize)]
 pub struct User {

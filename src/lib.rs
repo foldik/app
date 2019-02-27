@@ -21,7 +21,10 @@ fn root() -> Template {
 
 pub fn run() {
     rocket::ignite()
-        .mount("/api", routes!(api::session::get_session))
+        .mount(
+            "/api",
+            routes!(api::session::get_session, api::courses::get_courses),
+        )
         .mount("/", routes![root])
         .mount("/static", StaticFiles::from("dist"))
         .register(catchers![root])
