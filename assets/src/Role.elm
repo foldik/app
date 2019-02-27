@@ -12,11 +12,11 @@ decoder =
   let
     convert : String -> Decoder Role
     convert raw =
-      if raw == "admin" then
+      if raw == "Admin" then
         succeed Admin
-      else if raw == "mentor" then
+      else if raw == "Mentor" then
         succeed Mentor
-      else if raw == "student" then
+      else if raw == "Student" then
         succeed Student
       else
         fail "Unknown role"       
