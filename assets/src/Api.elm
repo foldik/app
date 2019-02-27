@@ -18,7 +18,7 @@ import NewCourse
 loadSession : (Result Http.Error User.User -> msg) -> Cmd msg
 loadSession msg =
   Http.get
-    { url = "/api/me"
+    { url = "/api/session"
     , expect = Http.expectJson msg userDecoder
     }
 
